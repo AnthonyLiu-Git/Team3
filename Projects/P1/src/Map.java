@@ -1,6 +1,7 @@
 import java.util.HashMap;
 import java.util.HashSet;
 import javax.swing.JComponent;
+import java.util.ArrayList;
 
 public class Map{
 
@@ -55,7 +56,20 @@ public class Map{
 	public boolean move(String name, Location loc, Type type) {
 		//update locations, components, and field
 		//use the setLocation method for the component to move it to the new location
-		return false;
+		if(this.getLoc(loc) == Type.WALL) {
+			return false;
+		}
+		else {
+			// im going to assume packman cannot move into a ghost
+			if(name.equals("packman") && this.getLoc(loc) == Type.GHOST) {
+				return false;
+			}
+			else {
+
+
+				return true;
+			}
+		}
 	}
 	
 	public HashSet<Type> getLoc(Location loc) {
