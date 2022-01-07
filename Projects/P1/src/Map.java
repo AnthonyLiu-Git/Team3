@@ -68,9 +68,44 @@ public class Map{
 		return false;
 	}
 	
-	public JComponent eatCookie(String name) {
+	public JComponent eatCookie(String name)
+	{
 		//update locations, components, field, and cookies
 		//the id for a cookie at (10, 1) is tok_x10_y1
+		
+		//Generate cookie string
+		Location nameLocation = locations.get(name);
+		int x = nameLocation.x;
+		int y = nameLocation.y;
+
+		String cookieId = "tok_x" + Integer.toString(x) + "_y" + Integer.toString(y);
+
+
+		//Check if a cookie exists at the name's location
+		if(locations.containsKey(cookieId)) 
+		{
+
+			//Save the cookie for return
+			JComponent returnCookie = components.get(cookieId);
+
+			//Remove it if so (Updates locations)
+			locations.remove(cookieId);
+
+			//Update cookie(s?)
+			cookies--;
+
+			//Remove that cookie from the list of components (Updates components)
+			components.remove(cookieId);
+
+			//Update the relevant field by setting it to empty			
+			field.put(nameLocation, emptySet);
+
+			//Returns the CookieComponent saved earlier
+			return returnCookie;
+
+		}
+		
+		//If not, return null
 		return null;
 	}
 }
