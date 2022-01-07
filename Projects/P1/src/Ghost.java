@@ -26,6 +26,9 @@ public class Ghost{
 
 	public boolean attack()
 	{
+
+		//Might be more complex than this, depending on what
+		//goes on in Map.attack()
 		if(is_pacman_in_range()) 
 		{
 			return myMap.attack(myName);
