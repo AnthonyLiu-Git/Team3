@@ -91,7 +91,7 @@ public class Map{
 			//Remove it if so (Updates locations)
 			locations.remove(cookieId);
 
-			//Update cookie(s?)
+			//Update cookie(s?)     
 			cookies--;
 
 			//Remove that cookie from the list of components (Updates components)
