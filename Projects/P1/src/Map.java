@@ -85,7 +85,7 @@ public class Map{
 		if(locations.containsKey(cookieId)) 
 		{
 
-			//Save the cookie for return
+			//Save cookie for return
 			JComponent returnCookie = components.get(cookieId);
 
 			//Remove it if so (Updates locations)
