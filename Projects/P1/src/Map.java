@@ -60,15 +60,19 @@ public class Map{
 			return false;
 		}
 		else {
-			// im going to assume packman cannot move into a ghost
-			if(name.equals("packman") && this.getLoc(loc) == Type.GHOST) {
-				return false;
-			}
-			else {
+			// setting type for later use
+			Type type = name.equals("pacman") ? Type.PACMAN : Type.GHOST;
 
+			// removing old location data
+			Location oldLocation = locations.get(name);
+			field.replace(oldLocation, field.get(oldLocation).remove(type));
 
-				return true;
-			}
+			// updating to new location
+			field.replace(loc, field.get(loc).add(type));
+			locations.replace(name, loc);
+			components.get(name).setLocation(loc);
+
+			return true;
 		}
 	}
 	
