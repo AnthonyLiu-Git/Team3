@@ -6,7 +6,7 @@ public class PacMan{
 	String myName;
 	Location myLoc;
 	Map myMap;
-	Location shift; 
+	Location shift;
 
 	public PacMan(String name, Location loc, Map map) {
 		this.myLoc = loc;
@@ -15,16 +15,21 @@ public class PacMan{
 	}
 
 	public ArrayList<Location> get_valid_moves() {
-		return null;	
+		return null;
 	}
 
 	public boolean move() {
 		return false;
 	}
 
-	public boolean is_ghost_in_range() { 
+	public boolean is_ghost_in_range() {
+
+        //change
+
+        //asdflkj
 		return false;
 	}
+
 
 	public JComponent consume()
 	{
@@ -33,7 +38,10 @@ public class PacMan{
 			return myMap.eatCookie("pacman");
 		}
 
-
  		return null;
 	}
+  
+  
+  
 }
+
