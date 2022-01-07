@@ -22,9 +22,9 @@ public class PacMan{
 		return false;
 	}
 
-	public boolean is_ghost_in_range() {
+	public boolean is_ghost_in() {
 
-        //change
+        //change asdflkasdjflj
 		return false;
 	}
 
