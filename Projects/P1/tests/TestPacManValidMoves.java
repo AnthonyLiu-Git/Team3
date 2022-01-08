@@ -15,6 +15,6 @@ public class TestPacManValidMoves extends TestCase {
 		locations.add(new Location(10,11));
 		locations.add(new Location(10,12));
 
-		assertEquals(pacman.get_valid_moves(), );
+		assertEquals(pacman.get_valid_moves(), locations);
 	}
 }
