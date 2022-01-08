@@ -8,6 +8,6 @@ public class TestMapMove {
 		MainFrame frame = new MainFrame();
         PacMan pacman = frame.addPacMan(new Location(2, 4));
         frame.startGame();
-        assertTrue(frame.myMap.move("pacman", new Location(2,4), Map.Type.PACMAN));
+        assertTrue(frame.getMap().move("pacman", new Location(2,4), Map.Type.PACMAN));
 	}
 }
