@@ -1,6 +1,7 @@
 import java.util.HashMap;
 import java.util.HashSet;
 import javax.swing.JComponent;
+import java.util.ArrayList;
 
 public class Map{
 
@@ -55,7 +56,21 @@ public class Map{
 	public boolean move(String name, Location loc, Type type) {
 		//update locations, components, and field
 		//use the setLocation method for the component to move it to the new location
-		return false;
+		if(this.getLoc(loc).contains(Type.WALL)) {
+			return false;
+		}
+		else {
+			// removing old location data
+			Location oldLocation = locations.get(name);
+			field.get(oldLocation).remove(type);
+
+			// updating to new location
+			field.get(loc).add(type);
+			locations.replace(name, loc);
+			components.get(name).setLocation(loc.x, loc.y);
+
+			return true;
+		}
 	}
 
 	public HashSet<Type> getLoc(Location loc) {
