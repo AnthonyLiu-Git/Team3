@@ -1,6 +1,7 @@
 import junit.framework.*;
 import java.awt.Color;
 import java.io.*;
+import java.util.ArrayList;
 
 public class TestPacManMove extends TestCase {
 
@@ -16,7 +17,7 @@ public class TestPacManMove extends TestCase {
 		pacman.move();
         System.out.println("This should be true.");
 
-        assertTrue(pacman.myLoc.equals(valid_moves.get(valid_moves.size())));
+        assertTrue(pacman.myLoc.equals(valid_moves.get(valid_moves.size() - 1)));
 	}
 
 }
