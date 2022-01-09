@@ -18,9 +18,13 @@ public class Ghost{
 		for(int i = -1; i <= 1; i++) {
 			for(int j = -1; j <= 1; j++) {
 				if(Math.abs(i) != Math.abs(j)) {
+
+					if(!myMap.getLoc(myLoc.shift(i,j)).contains(Map.Type.WALL)) {
+
 					HashSet<Map.Type> move = myMap.getLoc(myLoc.shift(i,j));
 					if(!move.contains(Map.Type.WALL)) {
 						validMoves.add(move);
+
 					}
 				}
 			}
@@ -29,14 +33,44 @@ public class Ghost{
 	}
 
 	public boolean move() {
+		
+		ArrayList<Location> locations = this.get_valid_moves();
+        
+        if(locations == null || locations.size() == 0){
+            return false;
+        
+        } else {
+
+            this.myLoc = locations.get(locations.size() - 1);
+            return true;
+
+        }
+	}
+
+	public boolean is_pacman_in_range() {
+		HashSet<Map.Type> curr = myMap.getLoc(myLoc);
+        HashSet<Map.Type> right = myMap.getLoc(myLoc.shift(1,0));
+        HashSet<Map.Type> left = myMap.getLoc(myLoc.shift(-1,0));
+        HashSet<Map.Type> up = myMap.getLoc(myLoc.shift(0,1));
+        HashSet<Map.Type> down = myMap.getLoc(myLoc.shift(0,-1));
+
+        if (right.contains(Map.Type.PACMAN) || left.contains(Map.Type.PACMAN)
+            || up.contains(Map.Type.PACMAN) || down.contains(Map.Type.PACMAN)
+            || curr.contains(Map.Type.PACMAN) ) {
+            return true;
+        }
 		return false;
 	}
 
-	public boolean is_pacman_in_range() { 
-		return false;
-	}
+	public boolean attack()
+	{
 
-	public boolean attack() {
+		//Might be more complex than this, depending on Map.attack ()
+		if(is_pacman_in_range()) 
+		{
+			return myMap.attack(myName);
+		}
+
 		return false;
 	}
 }
