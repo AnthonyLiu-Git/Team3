@@ -81,7 +81,7 @@ public class Map{
 		String cookieId = "tok_x" + Integer.toString(x) + "_y" + Integer.toString(y);
 
 
-		//Check if a cookie exists at the name's location
+		//Check if a cookie exists at the name's location   
 		if(locations.containsKey(cookieId)) 
 		{
 
