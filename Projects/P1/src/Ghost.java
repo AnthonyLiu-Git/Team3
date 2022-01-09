@@ -19,7 +19,7 @@ public class Ghost{
 			for(int j = -1; j <= 1; j++) {
 				if(Math.abs(i) != Math.abs(j)) {
 					if(!myMap.getLoc(myLoc.shift(i,j)).contains(Map.Type.WALL)) {
-						validMoves.add(new Location(i,j));
+						validMoves.add(new Location(i,j)); 
 					}
 				}
 			}
