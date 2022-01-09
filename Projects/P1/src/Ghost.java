@@ -18,8 +18,13 @@ public class Ghost{
 		for(int i = -1; i <= 1; i++) {
 			for(int j = -1; j <= 1; j++) {
 				if(Math.abs(i) != Math.abs(j)) {
+
 					if(!myMap.getLoc(myLoc.shift(i,j)).contains(Map.Type.WALL)) {
-						validMoves.add(new Location(i,j));
+
+					HashSet<Map.Type> move = myMap.getLoc(myLoc.shift(i,j));
+					if(!move.contains(Map.Type.WALL)) {
+						validMoves.add(move);
+
 					}
 				}
 			}

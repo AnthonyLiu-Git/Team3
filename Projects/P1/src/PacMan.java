@@ -15,18 +15,52 @@ public class PacMan{
 	}
 
 	public ArrayList<Location> get_valid_moves() {
-		return null;
+
+		ArrayList<Location> validMoves = new ArrayList<Location>();
+		for(int i = -1; i <= 1; i++) {
+			for(int j = -1; j <= 1; j++) {
+				if(Math.abs(i) != Math.abs(j)) {
+					// can packman move into a ghost?
+					if(!myMap.getLoc(myLoc.shift(i,j)).contains(Map.Type.WALL)) {
+						validMoves.add(new Location(i,j));
+					}
+				}
+			}
+		}
+		return validMoves;
+
 	}
 
 	public boolean move() {
-		return false;
+		
+		ArrayList<Location> locations = this.get_valid_moves();
+        
+        if(locations == null || locations.size() == 0){
+            return false;
+        
+        } else {
+
+            this.myLoc = locations.get(locations.size() - 1);
+            return true;
+
+        }
 	}
 
 	public boolean is_ghost_in_range() {
 
-        //change
+        HashSet<Map.Type> curr = myMap.getLoc(myLoc);
+        HashSet<Map.Type> right = myMap.getLoc(myLoc.shift(1,0));
+        HashSet<Map.Type> left = myMap.getLoc(myLoc.shift(-1,0));
+        HashSet<Map.Type> up = myMap.getLoc(myLoc.shift(0,1));
+        HashSet<Map.Type> down = myMap.getLoc(myLoc.shift(0,-1));
 
-        //asdflkRussell
+
+        if (right.contains(Map.Type.GHOST) || left.contains(Map.Type.GHOST)
+            || up.contains(Map.Type.GHOST) || down.contains(Map.Type.GHOST)
+            || curr.contains(Map.Type.GHOST) ) {
+            return true;
+        }
+
 		return false;
 	}
 
