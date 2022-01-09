@@ -83,6 +83,7 @@ public class Map{
 
 	public boolean attack(String Name) {
 		//update gameOver
+        //Moves the ghost to pacman, then updates gameOver
 		if(this.move(Name, locations.get(Name), Type.GHOST)) {
             return (gameOver = true);
         }
