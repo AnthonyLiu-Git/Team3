@@ -18,6 +18,7 @@ public class TestPacManMove extends TestCase {
         System.out.println("This should be true.");
 
         assertTrue(ghost.myLoc.equals(valid_moves.get(valid_moves.size() - 1)));
+
 	}
 
 
