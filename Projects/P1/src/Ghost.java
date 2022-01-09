@@ -25,6 +25,7 @@ public class Ghost{
 					if(!x.contains(Map.Type.WALL)) {
 
 						validMoves.add(new Location(i,j));
+
 					}
 				}
 			}
