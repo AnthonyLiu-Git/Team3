@@ -18,10 +18,13 @@ public class Ghost{
 		for(int i = -1; i <= 1; i++) {
 			for(int j = -1; j <= 1; j++) {
 				if(Math.abs(i) != Math.abs(j)) {
+                    HashSet <Map.Type> x = myMap.getLoc(myLoc.shift(i, j));
+                    if ( x == null) {
+                        System.out.println("this is null");
+                    }
+					if(!x.contains(Map.Type.WALL)) {
 
-					if(!myMap.getLoc(myLoc.shift(i,j)).contains(Map.Type.WALL)) {
-            
-						validMoves.add(new Location(i,j)); 
+						validMoves.add(new Location(i,j));
 					}
 				}
 			}
@@ -30,12 +33,12 @@ public class Ghost{
 	}
 
 	public boolean move() {
-		
+
 		ArrayList<Location> locations = this.get_valid_moves();
-        
+
         if(locations == null || locations.size() == 0){
             return false;
-        
+
         } else {
 
             this.myLoc = locations.get(locations.size() - 1);
@@ -63,7 +66,7 @@ public class Ghost{
 	{
 
 		//Might be more complex than this, depending on Map.attack ()
-		if(is_pacman_in_range()) 
+		if(is_pacman_in_range())
 		{
 			return myMap.attack(myName);
 		}

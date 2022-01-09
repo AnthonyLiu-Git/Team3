@@ -56,13 +56,19 @@ public class Map{
 	public boolean move(String name, Location loc, Type type) {
 		//update locations, components, and field
 		//use the setLocation method for the component to move it to the new location
+
+        System.out.println("Hey");
 		if(this.getLoc(loc).contains(Type.WALL)) {
+            System.out.println("bye");
 			return false;
 		}
 		else {
 			// removing old location data
 			Location oldLocation = locations.get(name);
 			field.get(oldLocation).remove(type);
+            if (field.get(oldLocation).isEmpty()) {
+                field.get(oldLocation).add(Type.EMPTY);
+            }
 
 			// updating to new location
 			field.get(loc).add(type);
@@ -76,15 +82,20 @@ public class Map{
 	public HashSet<Type> getLoc(Location loc) {
 		//wallSet and emptySet will help you write this method
 
+        if (field.get(loc) == null) {
+            HashSet<Type> wall = new HashSet<Type>();
+            wall.add(Type.WALL);
+            return wall;
+        }
 		HashSet<Type> location_types = field.get(loc);
-		
+
 		return location_types;
 	}
 
 	public boolean attack(String Name) {
 		//update gameOver
 		if(this.move(Name, locations.get(Name), Type.GHOST)) {
-            return (gameOver = true);
+            return (gameOver = false);
         }
         return false;
 	}
@@ -93,14 +104,14 @@ public class Map{
 		//update locations, components, field, and cookies
 		//the id for a cookie at (10, 1) is tok_x10_y1
 		//
-		
+
 		Location nameLocation = locations.get(name);
 		int x = nameLocation.x;
 		int y = nameLocation.y;
 
 		String cookieId = "tok_x" + Integer.toString(x) + "_y" + Integer.toString(y);
 
-		if(locations.containsKey(cookieId)) 
+		if(locations.containsKey(cookieId))
 		{
 			JComponent returnCookie = components.get(cookieId);
 
@@ -115,7 +126,7 @@ public class Map{
 			return returnCookie;
 
 		}
-	
+
 
 		return null;
 	}
