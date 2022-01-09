@@ -7,6 +7,7 @@ public class TestPacManMove extends TestCase {
 
 	public void testPacManMove() throws FileNotFoundException{
 
+
         MainFrame frame = new MainFrame();
         Ghost ghost = frame.addGhost(new Location(2, 3), "mike", Color.red);
         PacMan pacman = frame.addPacMan(new Location(1, 1));
@@ -21,3 +22,4 @@ public class TestPacManMove extends TestCase {
 	}
 
 }
+
