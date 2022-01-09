@@ -48,6 +48,7 @@ public class PacMan{
 
 	public boolean is_ghost_in_range() {
 
+        //Creates HashSets
         HashSet<Map.Type> curr = myMap.getLoc(myLoc);
         HashSet<Map.Type> right = myMap.getLoc(myLoc.shift(1,0));
         HashSet<Map.Type> left = myMap.getLoc(myLoc.shift(-1,0));
