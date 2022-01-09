@@ -20,11 +20,8 @@ public class Ghost{
 				if(Math.abs(i) != Math.abs(j)) {
 
 					if(!myMap.getLoc(myLoc.shift(i,j)).contains(Map.Type.WALL)) {
-
-					HashSet<Map.Type> move = myMap.getLoc(myLoc.shift(i,j));
-					if(!move.contains(Map.Type.WALL)) {
-						validMoves.add(move);
-
+            
+						validMoves.add(new Location(i,j)); 
 					}
 				}
 			}
