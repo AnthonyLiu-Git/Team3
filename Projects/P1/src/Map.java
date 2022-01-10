@@ -57,9 +57,8 @@ public class Map{
 		//update locations, components, and field
 		//use the setLocation method for the component to move it to the new location
 
-        System.out.println("Hey");
 		if(this.getLoc(loc).contains(Type.WALL)) {
-            System.out.println("bye");
+			System.out.println("Wall was found in map: " + name);
 			return false;
 		}
 		else {
@@ -74,7 +73,7 @@ public class Map{
 			field.get(loc).add(type);
 			locations.replace(name, loc);
 			components.get(name).setLocation(loc.x, loc.y);
-
+			System.out.println("Moved: "+ name);
 			return true;
 		}
 	}
@@ -94,8 +93,10 @@ public class Map{
 
 	public boolean attack(String Name) {
 		//update gameOver
-		if(this.move(Name, locations.get(Name), Type.GHOST)) {
-            return (gameOver = false);
+		this.move(Name, locations.get(Name), Type.GHOST);
+
+		if(getLoc(locations.get(Name)).contains(Type.PACMAN)){
+            return (gameOver = true);
         }
         return false;
 	}
@@ -117,7 +118,7 @@ public class Map{
 
 			locations.remove(cookieId);
 
-			cookies--;
+			cookies++;
 
 			components.remove(cookieId);
 

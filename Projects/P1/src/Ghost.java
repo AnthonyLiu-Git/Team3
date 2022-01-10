@@ -23,12 +23,13 @@ public class Ghost{
                         System.out.println("this is null");
                     }
 					if(!x.contains(Map.Type.WALL)) {
-
-						validMoves.add(new Location(i,j));
+						
+						validMoves.add(new Location(myLoc.x + i, myLoc.y +j));
 					}
 				}
 			}
 		}
+		System.out.println(myName+" " +validMoves.get((validMoves.size() -1)).x +" " + validMoves.get(validMoves.size() -1).y);
 		return validMoves;
 	}
 
@@ -37,11 +38,15 @@ public class Ghost{
 		ArrayList<Location> locations = this.get_valid_moves();
 
         if(locations == null || locations.size() == 0){
+			System.out.println("Ghost no valid moves");
+
             return false;
 
         } else {
 
             this.myLoc = locations.get(locations.size() - 1);
+			myMap.move(myName, myLoc, Map.Type.GHOST);
+			System.out.println("Ghost Moved: "+ myName);
             return true;
 
         }

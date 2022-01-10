@@ -21,13 +21,14 @@ public class PacMan{
 			for(int j = -1; j <= 1; j++) {
 				if(Math.abs(i) != Math.abs(j)) {
 					// can packman move into a ghost?
-                    HashSet x = myMap.getLoc(myLoc.shift(i,j));
 
-                    if (x == null) {
-                        System.out.println("it's null");
+                     HashSet <Map.Type> x = myMap.getLoc(myLoc.shift(i, j));
+                    if ( x == null) {
+                        System.out.println("this is null");
                     }
-					if(!myMap.getLoc(myLoc.shift(i,j)).contains(Map.Type.WALL)) {
-						validMoves.add(new Location(i,j));
+					if(!x.contains(Map.Type.WALL)) {
+						
+						validMoves.add(new Location(myLoc.x + i, myLoc.y +j));
 					}
 				}
 			}
@@ -41,13 +42,14 @@ public class PacMan{
 		ArrayList<Location> locations = this.get_valid_moves();
 
         if(locations == null || locations.size() == 0){
-            return false;
+			System.out.println("Pacman Not");
+			return false;
 
         } else {
 
             this.myLoc = locations.get(locations.size() - 1);
             myMap.move(myName, myLoc, Map.Type.PACMAN);
-
+			System.out.println("PACMAN Moved");
             return true;
 
         }
