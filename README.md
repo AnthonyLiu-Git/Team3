@@ -3,7 +3,7 @@
 
 **- PacMan**
 - By Michael Ko, Benjamin Shasho, Stephen Duffy, Russel Nessbitt
-- An image of your code playing PacMan
+![alt text](https://github.com/cmsc388T-winter22/Team3/blob/main/Projects/P1/Screen%20Shot%202022-01-10%20at%2013.25.53.png)
 - How to run the game
 ```bash
 javac -cp "src/" src/*.java
