@@ -7,6 +7,7 @@ public class Ghost{
 	Map myMap;
 
 	public Ghost(String name, Location loc, Map map) {
+        //hi
 		this.myLoc = loc;
 		this.myName = name;
 		this.myMap = map;
@@ -20,7 +21,7 @@ public class Ghost{
 		return false;
 	}
 
-	public boolean is_pacman_in_range() { 
+	public boolean is_pacman_in_range() {
 		return false;
 	}
 
