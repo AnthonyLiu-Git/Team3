@@ -19,9 +19,7 @@ public class Ghost{
 			for(int j = -1; j <= 1; j++) {
 				if(Math.abs(i) != Math.abs(j)) {
                     HashSet <Map.Type> x = myMap.getLoc(myLoc.shift(i, j));
-                    if ( x == null) {
-                        System.out.println("this is null");
-                    }
+                   
 					if(!x.contains(Map.Type.WALL)) {
 						
 						validMoves.add(new Location(myLoc.x + i, myLoc.y +j));
@@ -29,7 +27,6 @@ public class Ghost{
 				}
 			}
 		}
-		System.out.println(myName+" " +validMoves.get((validMoves.size() -1)).x +" " + validMoves.get(validMoves.size() -1).y);
 		return validMoves;
 	}
 
@@ -38,7 +35,6 @@ public class Ghost{
 		ArrayList<Location> locations = this.get_valid_moves();
 
         if(locations == null || locations.size() == 0){
-			System.out.println("Ghost no valid moves");
 
             return false;
 
@@ -46,7 +42,6 @@ public class Ghost{
 
             this.myLoc = locations.get(locations.size() - 1);
 			myMap.move(myName, myLoc, Map.Type.GHOST);
-			System.out.println("Ghost Moved: "+ myName);
             return true;
 
         }

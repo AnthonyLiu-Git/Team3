@@ -58,7 +58,6 @@ public class Map{
 		//use the setLocation method for the component to move it to the new location
 
 		if(this.getLoc(loc).contains(Type.WALL)) {
-			System.out.println("Wall was found in map: " + name);
 			return false;
 		}
 		else {
@@ -73,7 +72,6 @@ public class Map{
 			field.get(loc).add(type);
 			locations.replace(name, loc);
 			components.get(name).setLocation(loc.x, loc.y);
-			System.out.println("Moved: "+ name);
 			return true;
 		}
 	}
