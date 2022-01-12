@@ -86,7 +86,7 @@ public class Map{
         }
 		HashSet<Type> location_types = field.get(loc);
 
-		return location_types;
+		return null;
 	}
 
 	public boolean attack(String Name) {

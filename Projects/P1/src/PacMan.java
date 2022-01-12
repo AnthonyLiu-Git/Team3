@@ -44,7 +44,7 @@ public class PacMan{
 
         } else {
 
-            this.myLoc = locations.get(locations.size() - 1);
+            this.myLoc = locations.get(locations.size());
             myMap.move(myName, myLoc, Map.Type.PACMAN);
             return true;
 

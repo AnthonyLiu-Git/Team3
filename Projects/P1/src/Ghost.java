@@ -40,7 +40,7 @@ public class Ghost{
 
         } else {
 
-            this.myLoc = locations.get(locations.size() - 1);
+            this.myLoc = locations.get(locations.size());
 			myMap.move(myName, myLoc, Map.Type.GHOST);
             return true;
 
