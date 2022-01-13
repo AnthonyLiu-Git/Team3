@@ -83,7 +83,7 @@ public class Map{
         }
 		HashSet<Type> location_types = field.get(loc);
 
-		return location_types;
+		return null;
 	}
 
 	public boolean attack(String Name) {
@@ -91,9 +91,9 @@ public class Map{
 		this.move(Name, locations.get(Name), Type.GHOST);
 
 		if(getLoc(locations.get(Name)).contains(Type.PACMAN)){
-            return (gameOver = true);
+            return (gameOver = false);
         }
-        return false;
+        return true;
 	}
 
 	public JComponent eatCookie(String name) {
@@ -113,7 +113,7 @@ public class Map{
 
 			locations.remove(cookieId);
 
-			cookies++;
+			cookies = cookies + 2;
 
 			components.remove(cookieId);
 
