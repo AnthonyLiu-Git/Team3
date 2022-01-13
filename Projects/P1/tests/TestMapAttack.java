@@ -2,7 +2,7 @@ import java.awt.Color;
 import junit.framework.*;
 import java.io.*;
 
-public class TestMapAttack {
+public class TestMapAttack extends TestCase{
 
 	public void testMapAttack() {
         MainFrame frame = new MainFrame();
