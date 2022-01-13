@@ -1,6 +1,7 @@
 import junit.framework.*;
 import java.awt.Color;
 import java.io.*;
+import javax.swing.JComponent;
 
 public class TestConsume extends TestCase {
 
@@ -9,13 +10,10 @@ public class TestConsume extends TestCase {
 		MainFrame frame = new MainFrame();
 		PacMan pacman = frame.addPacMan(new Location(1,1));
 
-		frame.startGame();
+		JComponent myComponent = pacman.consume();
+		
+		int myCookies = frame.getMap().getCookies();
 
-		if(frame.getMap.getCookies() == 1) 
-		{
-			assertTrue(true);
-		}
-
-		assertTrue(false);
+		assertTrue((myCookies == 1));
 	}
 }

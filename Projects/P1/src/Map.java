@@ -116,7 +116,7 @@ public class Map{
 
 			locations.remove(cookieId);
 
-			cookies = cookies + cookies;
+			cookies = cookies + 2;
 
 			components.remove(cookieId);
 

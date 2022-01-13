@@ -1,24 +1,22 @@
 import junit.framework.*;
 import java.awt.Color;
 import java.io.*;
+import javax.swing.JComponent;
 
-public class TestMapEatCookie {
+public class TestMapEatCookie extends TestCase {
 
-	public void testMapEatCookie()
+	public void testMapEatCookie() throws FileNotFoundException
 	{
 		MainFrame frame = new MainFrame();
-		Location myLocation = new Location(1, 1);
 
-		PacMan pacman = frame.addPacMan(myLocation);
+		PacMan pacman = frame.addPacMan(new Location(1, 1));
 
-		frame.startGame();
+		JComponent myComponent = frame.getMap().eatCookie("pacman");
 
-		if(frame.getMap().getCookies() == 1) 
-		{
-			assertTrue(true);
-		}
+		int myCookies = frame.getMap().getCookies();
 
-		assertTrue(false);
+		assertTrue((myCookies == 1));
+		
 
 	}
 }
