@@ -19,9 +19,9 @@ public class Ghost{
 			for(int j = -1; j <= 1; j++) {
 				if(Math.abs(i) != Math.abs(j)) {
                     HashSet <Map.Type> x = myMap.getLoc(myLoc.shift(i, j));
-                   
+
 					if(!x.contains(Map.Type.WALL)) {
-						
+
 						validMoves.add(new Location(myLoc.x + i, myLoc.y +j));
 					}
 				}
@@ -57,9 +57,9 @@ public class Ghost{
         if (right.contains(Map.Type.PACMAN) || left.contains(Map.Type.PACMAN)
             || up.contains(Map.Type.PACMAN) || down.contains(Map.Type.PACMAN)
             || curr.contains(Map.Type.PACMAN) ) {
-            return true;
+            return false;
         }
-		return false;
+		return true;
 	}
 
 	public boolean attack()

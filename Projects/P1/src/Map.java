@@ -94,9 +94,9 @@ public class Map{
 		this.move(Name, locations.get(Name), Type.GHOST);
 
 		if(getLoc(locations.get(Name)).contains(Type.PACMAN)){
-            return (gameOver = true);
+            return (gameOver = false);
         }
-        return false;
+        return true;
 	}
 
 	public JComponent eatCookie(String name) {

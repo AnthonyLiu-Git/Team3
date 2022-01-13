@@ -23,9 +23,9 @@ public class PacMan{
 					// can packman move into a ghost?
 
                      HashSet <Map.Type> x = myMap.getLoc(myLoc.shift(i, j));
-                  
+
 					if(!x.contains(Map.Type.WALL)) {
-						
+
 						validMoves.add(new Location(myLoc.x + i, myLoc.y +j));
 					}
 				}
@@ -63,10 +63,10 @@ public class PacMan{
         if (right.contains(Map.Type.GHOST) || left.contains(Map.Type.GHOST)
             || up.contains(Map.Type.GHOST) || down.contains(Map.Type.GHOST)
             || curr.contains(Map.Type.GHOST) ) {
-            return true;
+            return false;
         }
 
-		return false;
+		return true;
 	}
 
 
