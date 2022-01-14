@@ -64,10 +64,7 @@ public class Map{
 			// removing old location data
 			Location oldLocation = locations.get(name);
 			field.get(oldLocation).remove(type);
-            if (field.get(oldLocation).isEmpty()) {
-                field.get(oldLocation).add(Type.EMPTY);
-            }
-
+			
 			// updating to new location
 			field.get(loc).add(type);
 			locations.replace(name, loc);

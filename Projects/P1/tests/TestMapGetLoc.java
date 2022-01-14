@@ -13,6 +13,6 @@ public class TestMapGetLoc extends TestCase {
         frame.startGame();
 
 		assertTrue(frame.getMap().getLoc(new Location(2,3)).contains(Map.Type.GHOST) && frame.getMap().getLoc(new Location(1,1)).contains(Map.Type.PACMAN));
-	
+
 	}
 }

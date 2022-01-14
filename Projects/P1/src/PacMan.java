@@ -20,13 +20,11 @@ public class PacMan{
 		for(int i = -1; i <= 1; i++) {
 			for(int j = -1; j <= 1; j++) {
 				if(Math.abs(i) != Math.abs(j)) {
-					// can packman move into a ghost?
 
-                     HashSet <Map.Type> x = myMap.getLoc(myLoc.shift(i, j));
-
+                    HashSet <Map.Type> x = myMap.getLoc(myLoc.shift(i, j));
 					if(!x.contains(Map.Type.WALL)) {
-
-						validMoves.add(new Location(myLoc.x + i, myLoc.y +j));
+						
+						validMoves.add(new Location(i, j));
 					}
 				}
 			}
