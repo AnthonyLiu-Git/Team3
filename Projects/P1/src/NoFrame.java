@@ -16,7 +16,7 @@ import javax.swing.Timer;
 import java.awt.Color;
 /**
  * Main Frame for Pac Man Game
- * 
+ *
  * @author nandhinikrishnan
  *
  */
@@ -32,22 +32,22 @@ public class NoFrame {
 	public int scale = 20;
 	public int dim = 30;
 	private int score = 0;
-		
+
 	private boolean continueGame = true;
-	
+
 	public NoFrame() throws FileNotFoundException
 	{
-		
+
 		myMap = new Map(dim);
-	
-		File text = new File("src/assets/Map.txt");
+
+		File text = new File("Projects/P1/src/assets/Map.txt");
 		Scanner scnr = new Scanner(text);
 		int row = 0;
 		while(scnr.hasNextLine()){
 		    String line = scnr.nextLine();
 		    for(int col = 0; col < line.length(); col++) {
 		    	Location loc = new Location(row, col);
-		   
+
 			 	if(line.charAt(col) == '0') {
 		    		WallComponent wall = new WallComponent(loc.x,loc.y,scale);
 		    		myMap.add("wall", loc, wall, Map.Type.WALL);
@@ -60,8 +60,8 @@ public class NoFrame {
 		    	}
 		    }
 		    row++;
-		} 
-		
+		}
+
 		scnr.close();
 	}
 
@@ -79,9 +79,9 @@ public class NoFrame {
 		ghosts.add(ghost);
 		return ghost;
 	}
-	
+
 	public void initPlayers() {
-		addPacMan(new Location(1,1)); 
+		addPacMan(new Location(1,1));
 
 		int i = 0;
 		for (Color color : colors) {
@@ -95,7 +95,7 @@ public class NoFrame {
 	public Map getMap() {
 		return myMap;
 	}
-	
+
 	public void startGame() {
 		Timer timer = new Timer(100, new ActionListener() {
 
@@ -110,21 +110,21 @@ public class NoFrame {
 						ghost.attack();
 					}
 				}
-				
+
 				if(myMap.isGameOver()) {
 					continueGame = false;
 					score = myMap.getCookies();
 			        System.exit(0);
 				}
-			}}); 
+			}});
 		timer.start();
-	}	
+	}
 
 	public static void main(String[] args) throws FileNotFoundException
 	{
 		NoFrame myFrame = new NoFrame();
-		myFrame.initPlayers();	
-		myFrame.startGame();		
-		
+		myFrame.initPlayers();
+		myFrame.startGame();
+
 	}
 }

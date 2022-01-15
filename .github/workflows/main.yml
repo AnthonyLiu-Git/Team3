@@ -1,0 +1,137 @@
+# This is a basic workflow to help you get started with Actions
+name: CI
+# Controls when the workflow will run
+on: [push, pull_request, workflow_dispatch]
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    runs-on: ubuntu-latest
+    container: openjdk
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build Project
+        run: javac -cp "Projects/P1/tests/junit-4.10.jar:Projects/P1/src/:Projects/P1/tests/" Projects/P1/src/*.java Projects/P1/tests/*.java
+  mapattack:  
+    runs-on: ubuntu-latest
+    container: openjdk
+    steps:
+      - uses: actions/checkout@v2
+      - name: Test Map attack
+        run: |
+          javac -cp "Projects/P1/tests/junit-4.10.jar:Projects/P1/src/:Projects/P1/tests/" Projects/P1/src/*.java Projects/P1/tests/*.java
+          java -Djava.awt.headless=true -cp "Projects/P1/tests/junit-4.10.jar:Projects/P1/src/:Projects/P1/tests/" org.junit.runner.JUnitCore TestMapAttack
+          
+  PacmanInRange:  
+    runs-on: ubuntu-latest
+    container: openjdk
+    steps:
+      - uses: actions/checkout@v2
+      - name: pacman in range
+        run: |
+          javac -cp "Projects/P1/tests/junit-4.10.jar:Projects/P1/src/:Projects/P1/tests/" Projects/P1/src/*.java Projects/P1/tests/*.java
+          java -Djava.awt.headless=true -cp "Projects/P1/tests/junit-4.10.jar:Projects/P1/src/:Projects/P1/tests/" org.junit.runner.JUnitCore TestPacManInRange
+
+  GhostInRange:
+    runs-on: ubuntu-latest
+    container: openjdk
+    steps:
+      - uses: actions/checkout@v2
+      - name: ghost in range
+        run: |
+          javac -cp "Projects/P1/tests/junit-4.10.jar:Projects/P1/src/:Projects/P1/tests/" Projects/P1/src/*.java Projects/P1/tests/*.java
+          java -Djava.awt.headless=true -cp "Projects/P1/tests/junit-4.10.jar:Projects/P1/src/:Projects/P1/tests/" org.junit.runner.JUnitCore TestGhostInRange
+
+          
+  PacmanConsume:  
+    runs-on: ubuntu-latest
+    container: openjdk
+    steps:
+      - uses: actions/checkout@v2
+      - name: Pacman Consume
+        run: |
+          javac -cp "Projects/P1/tests/junit-4.10.jar:Projects/P1/src/:Projects/P1/tests/" Projects/P1/src/*.java Projects/P1/tests/*.java
+          java -Djava.awt.headless=true -cp "Projects/P1/tests/junit-4.10.jar:Projects/P1/src/:Projects/P1/tests/" org.junit.runner.JUnitCore TestConsume
+          
+  GhostAttack:  
+    runs-on: ubuntu-latest
+    container: openjdk
+    steps:
+      - uses: actions/checkout@v2
+      - name: Ghost Attack
+        run: |
+          javac -cp "Projects/P1/tests/junit-4.10.jar:Projects/P1/src/:Projects/P1/tests/" Projects/P1/src/*.java Projects/P1/tests/*.java
+          java -Djava.awt.headless=true -cp "Projects/P1/tests/junit-4.10.jar:Projects/P1/src/:Projects/P1/tests/" org.junit.runner.JUnitCore TestAttack
+
+  MapEatCookie:
+    runs-on: ubuntu-latest
+    container: openjdk
+    steps:
+      - uses: actions/checkout@v2
+      - name: Map Eat Cookie
+        run: |
+          javac -cp "Projects/P1/tests/junit-4.10.jar:Projects/P1/src/:Projects/P1/tests/" Projects/P1/src/*.java Projects/P1/tests/*.java
+          java -Djava.awt.headless=true -cp "Projects/P1/tests/junit-4.10.jar:Projects/P1/src/:Projects/P1/tests/" org.junit.runner.JUnitCore TestMapEatCookie        
+
+  PacManMove:
+    runs-on: ubuntu-latest
+    container: openjdk
+    steps:
+      - uses: actions/checkout@v2
+      - name: pacman move
+        run: |
+          javac -cp "Projects/P1/tests/junit-4.10.jar:Projects/P1/src/:Projects/P1/tests/" Projects/P1/src/*.java Projects/P1/tests/*.java
+          java -Djava.awt.headless=true -cp "Projects/P1/tests/junit-4.10.jar:Projects/P1/src/:Projects/P1/tests/" org.junit.runner.JUnitCore TestPacManMove        
+
+
+          
+  GhostMove:
+    runs-on: ubuntu-latest
+    container: openjdk
+    steps:
+      - uses: actions/checkout@v2
+      - name: Test Ghost Move
+        run: |
+          javac -cp "Projects/P1/tests/junit-4.10.jar:Projects/P1/src/:Projects/P1/tests/" Projects/P1/src/*.java Projects/P1/tests/*.java
+          java -Djava.awt.headless=true -cp "Projects/P1/tests/junit-4.10.jar:Projects/P1/src/:Projects/P1/tests/" org.junit.runner.JUnitCore TestGhostMove        
+
+
+  MapGetLoc:
+    runs-on: ubuntu-latest
+    container: openjdk
+    steps:
+      - uses: actions/checkout@v2
+      - name: map get loc
+        run: |
+          javac -cp "Projects/P1/tests/junit-4.10.jar:Projects/P1/src/:Projects/P1/tests/" Projects/P1/src/*.java Projects/P1/tests/*.java
+          java -Djava.awt.headless=true -cp "Projects/P1/tests/junit-4.10.jar:Projects/P1/src/:Projects/P1/tests/" org.junit.runner.JUnitCore TestMapGetLoc        
+
+  PacmanValidMoves:
+    runs-on: ubuntu-latest
+    container: openjdk
+    steps:
+      - uses: actions/checkout@v2
+      - name: pacman valid moves
+        run: |
+          javac -cp "Projects/P1/tests/junit-4.10.jar:Projects/P1/src/:Projects/P1/tests/" Projects/P1/src/*.java Projects/P1/tests/*.java
+          java -Djava.awt.headless=true -cp "Projects/P1/tests/junit-4.10.jar:Projects/P1/src/:Projects/P1/tests/" org.junit.runner.JUnitCore TestPacManValidMoves             
+ 
+  GhostValidMoves:
+    runs-on: ubuntu-latest
+    container: openjdk
+    steps:
+      - uses: actions/checkout@v2
+      - name: ghost valid moves
+        run: |
+          javac -cp "Projects/P1/tests/junit-4.10.jar:Projects/P1/src/:Projects/P1/tests/" Projects/P1/src/*.java Projects/P1/tests/*.java
+          java -Djava.awt.headless=true -cp "Projects/P1/tests/junit-4.10.jar:Projects/P1/src/:Projects/P1/tests/" org.junit.runner.JUnitCore TestGhostValidMoves
+          
+  MapMove:
+    runs-on: ubuntu-latest
+    container: openjdk
+    steps:
+      - uses: actions/checkout@v2
+      - name: map move
+        run: |
+          javac -cp "Projects/P1/tests/junit-4.10.jar:Projects/P1/src/:Projects/P1/tests/" Projects/P1/src/*.java Projects/P1/tests/*.java
+          java -Djava.awt.headless=true -cp "Projects/P1/tests/junit-4.10.jar:Projects/P1/src/:Projects/P1/tests/" org.junit.runner.JUnitCore TestMapMove

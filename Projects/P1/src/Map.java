@@ -88,12 +88,8 @@ public class Map{
 
 	public boolean attack(String Name) {
 		//update gameOver
-		this.move(Name, locations.get(Name), Type.GHOST);
+		return gameOver = true;
 
-		if(getLoc(locations.get(Name)).contains(Type.PACMAN)){
-            return (gameOver = false);
-        }
-        return true;
 	}
 
 	public JComponent eatCookie(String name) {
