@@ -104,5 +104,32 @@ jobs:
           javac -cp "Projects/P1/tests/junit-4.10.jar:Projects/P1/src/:Projects/P1/tests/" Projects/P1/src/*.java Projects/P1/tests/*.java
           java -Djava.awt.headless=true -cp "Projects/P1/tests/junit-4.10.jar:Projects/P1/src/:Projects/P1/tests/" org.junit.runner.JUnitCore TestMapGetLoc        
 
-          
+  PacmanValidMoves:
+    runs-on: ubuntu-latest
+    container: openjdk
+    steps:
+      - uses: actions/checkout@v2
+      - name: pacman valid moves
+        run: PacMan Valid Moves
+          javac -cp "Projects/P1/tests/junit-4.10.jar:Projects/P1/src/:Projects/P1/tests/" Projects/P1/src/*.java Projects/P1/tests/*.java
+          java -Djava.awt.headless=true -cp "Projects/P1/tests/junit-4.10.jar:Projects/P1/src/:Projects/P1/tests/" org.junit.runner.JUnitCore TestPacManValidMoves             
  
+  GhostValidMoves:
+    runs-on: ubuntu-latest
+    container: openjdk
+    steps:
+      - uses: actions/checkout@v2
+      - name: ghost valid moves
+        run: Ghost Valid Moves
+          javac -cp "Projects/P1/tests/junit-4.10.jar:Projects/P1/src/:Projects/P1/tests/" Projects/P1/src/*.java Projects/P1/tests/*.java
+          java -Djava.awt.headless=true -cp "Projects/P1/tests/junit-4.10.jar:Projects/P1/src/:Projects/P1/tests/" org.junit.runner.JUnitCore TestGhostValidMoves
+          
+  MapMove:
+    runs-on: ubuntu-latest
+    container: openjdk
+    steps:
+      - uses: actions/checkout@v2
+      - name: map move
+        run: Map Move
+          javac -cp "Projects/P1/tests/junit-4.10.jar:Projects/P1/src/:Projects/P1/tests/" Projects/P1/src/*.java Projects/P1/tests/*.java
+          java -Djava.awt.headless=true -cp "Projects/P1/tests/junit-4.10.jar:Projects/P1/src/:Projects/P1/tests/" org.junit.runner.JUnitCore TestMapMove
