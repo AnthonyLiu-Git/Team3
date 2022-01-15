@@ -4,7 +4,15 @@ import java.io.*;
 
 public class TestConsume extends TestCase {
 
-	public void testConsume() throws FileNotFoundException {
+	public void testConsume() throws FileNotFoundException
+	{
+		NoFrame frame = new NoFrame();
+		PacMan pacman = frame.addPacMan(new Location(1,1));
 
+		JComponent myComponent = pacman.consume();
+
+		int myCookies = frame.getMap().getCookies();
+
+		assertTrue((myCookies == 1));
 	}
 }
