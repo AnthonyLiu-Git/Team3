@@ -1,6 +1,7 @@
 import junit.framework.*;
 import java.awt.Color;
 import java.io.*;
+import javax.swing.JComponent;
 
 public class TestConsume extends TestCase {
 
