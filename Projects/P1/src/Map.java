@@ -64,10 +64,7 @@ public class Map{
 			// removing old location data
 			Location oldLocation = locations.get(name);
 			field.get(oldLocation).remove(type);
-            if (field.get(oldLocation).isEmpty()) {
-                field.get(oldLocation).add(Type.EMPTY);
-            }
-
+			
 			// updating to new location
 			field.get(loc).add(type);
 			locations.replace(name, loc);
@@ -86,13 +83,13 @@ public class Map{
         }
 		HashSet<Type> location_types = field.get(loc);
 
-		return location_types;
+		return null;
 	}
 
 	public boolean attack(String Name) {
 		//update gameOver
-
 		return gameOver = true;
+
 	}
 
 	public JComponent eatCookie(String name) {
@@ -112,7 +109,7 @@ public class Map{
 
 			locations.remove(cookieId);
 
-			cookies++;
+			cookies = cookies + 2;
 
 			components.remove(cookieId);
 

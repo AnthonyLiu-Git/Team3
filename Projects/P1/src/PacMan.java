@@ -20,13 +20,11 @@ public class PacMan{
 		for(int i = -1; i <= 1; i++) {
 			for(int j = -1; j <= 1; j++) {
 				if(Math.abs(i) != Math.abs(j)) {
-					// can packman move into a ghost?
 
-                     HashSet <Map.Type> x = myMap.getLoc(myLoc.shift(i, j));
-                  
+                    HashSet <Map.Type> x = myMap.getLoc(myLoc.shift(i, j));
 					if(!x.contains(Map.Type.WALL)) {
 						
-						validMoves.add(new Location(myLoc.x + i, myLoc.y +j));
+						validMoves.add(new Location(i, j));
 					}
 				}
 			}
@@ -44,7 +42,7 @@ public class PacMan{
 
         } else {
 
-            this.myLoc = locations.get(locations.size() - 1);
+            this.myLoc = locations.get(locations.size());
             myMap.move(myName, myLoc, Map.Type.PACMAN);
             return true;
 
@@ -63,10 +61,10 @@ public class PacMan{
         if (right.contains(Map.Type.GHOST) || left.contains(Map.Type.GHOST)
             || up.contains(Map.Type.GHOST) || down.contains(Map.Type.GHOST)
             || curr.contains(Map.Type.GHOST) ) {
-            return true;
+            return false;
         }
 
-		return false;
+		return true;
 	}
 
 
@@ -74,10 +72,11 @@ public class PacMan{
 	{
 		if(myMap.getLoc(myLoc).contains(Map.Type.COOKIE))
 		{
-			return myMap.eatCookie("pacman");
+			return null;
 		}
+			
+		return myMap.eatCookie("pacman");
 
- 		return null;
 	}
 
 

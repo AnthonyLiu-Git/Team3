@@ -5,7 +5,6 @@ import javax.swing.JComponent;
 
 public class TestMapEatCookie extends TestCase {
 
-
 	public void testMapEatCookie() throws FileNotFoundException
 	{
 		NoFrame frame = new NoFrame();
