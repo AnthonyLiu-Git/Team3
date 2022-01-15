@@ -22,7 +22,7 @@ public class PacMan{
 				if(Math.abs(i) != Math.abs(j)) {
 
                     HashSet <Map.Type> x = myMap.getLoc(myLoc.shift(i, j));
-					if(!x.contains(Type.WALL)) {
+					if(!x.contains(Map.Type.WALL)) {
 						
 						validMoves.add(new Location(myLoc.x+i, myLoc.y+j));
 					}
