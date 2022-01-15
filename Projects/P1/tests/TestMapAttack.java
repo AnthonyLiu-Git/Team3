@@ -5,7 +5,7 @@ import java.io.*;
 public class TestMapAttack extends TestCase {
 
 	public void testMapAttack() {
-        MainFrame frame = new MainFrame();
+        NoFrame frame = new NoFrame();
         Ghost ghost = frame.addGhost(new Location(2, 3), "mike", Color.red);
         PacMan pacman = frame.addPacMan(new Location(2, 2));
         frame.startGame();
