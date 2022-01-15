@@ -41,5 +41,35 @@ jobs:
         run: |
           javac -cp “Projects/P1/tests/junit-4.10.jar:Projects/P1/src/:Projects/P1/tests/” Projects/P1/src/*.java Projects/P1/tests/*.java
           java -Djava.awt.headless=true -cp “Projects/P1/tests/junit-4.10.jar:Projects/P1/src/:Projects/P1/tests/” org.junit.runner.JUnitCore TestGhostInRange
+          
+  PacmanConsume:  
+    runs-on: ubuntu-latest
+    container: openjdk
+    steps:
+      - uses: actions/checkout@v2
+      - name: Pacman Consume
+        run: |
+          javac -cp “Projects/P1/tests/junit-4.10.jar:Projects/P1/src/:Projects/P1/tests/” Projects/P1/src/*.java Projects/P1/tests/*.java
+          java -Djava.awt.headless=true -cp “Projects/P1/tests/junit-4.10.jar:Projects/P1/src/:Projects/P1/tests/” org.junit.runner.JUnitCore TestConsume
+          
+  GhostAttack:  
+    runs-on: ubuntu-latest
+    container: openjdk
+    steps:
+      - uses: actions/checkout@v2
+      - name: Ghost Attack
+        run: |
+          javac -cp “Projects/P1/tests/junit-4.10.jar:Projects/P1/src/:Projects/P1/tests/” Projects/P1/src/*.java Projects/P1/tests/*.java
+          java -Djava.awt.headless=true -cp “Projects/P1/tests/junit-4.10.jar:Projects/P1/src/:Projects/P1/tests/” org.junit.runner.JUnitCore TestAttack
+
+  MapEatCookie:
+    runs-on: ubuntu-latest
+    container: openjdk
+    steps:
+      - uses: actions/checkout@v2
+      - name: ghost in range
+        run: Map Eat Cookie
+          javac -cp “Projects/P1/tests/junit-4.10.jar:Projects/P1/src/:Projects/P1/tests/” Projects/P1/src/*.java Projects/P1/tests/*.java
+          java -Djava.awt.headless=true -cp “Projects/P1/tests/junit-4.10.jar:Projects/P1/src/:Projects/P1/tests/” org.junit.runner.JUnitCore TestMapEatCookie        
 
           
