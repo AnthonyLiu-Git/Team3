@@ -5,11 +5,41 @@ on: [push, pull_request, workflow_dispatch]
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
- build:
+  build:
     runs-on: ubuntu-latest
     container: openjdk
     steps:
       - uses: actions/checkout@v2
       - name: Build Project
         run: javac -cp “Projects/P1/tests/junit-4.10.jar:Projects/P1/src/:Projects/P1/tests/” Projects/P1/src/*.java Projects/P1/tests/*.java
-        
+  mapattack:  
+    runs-on: ubuntu-latest
+    container: openjdk
+    steps:
+      - uses: actions/checkout@v2
+      - name: Test Map attack
+        run: |
+          javac -cp “Projects/P1/tests/junit-4.10.jar:Projects/P1/src/:Projects/P1/tests/” Projects/P1/src/*.java Projects/P1/tests/*.java
+          java -Djava.awt.headless=true -cp “Projects/P1/tests/junit-4.10.jar:Projects/P1/src/:Projects/P1/tests/” org.junit.runner.JUnitCore TestMapAttack
+          
+  PacmanInRange:  
+    runs-on: ubuntu-latest
+    container: openjdk
+    steps:
+      - uses: actions/checkout@v2
+      - name: pacman in range
+        run: |
+          javac -cp “Projects/P1/tests/junit-4.10.jar:Projects/P1/src/:Projects/P1/tests/” Projects/P1/src/*.java Projects/P1/tests/*.java
+          java -Djava.awt.headless=true -cp “Projects/P1/tests/junit-4.10.jar:Projects/P1/src/:Projects/P1/tests/” org.junit.runner.JUnitCore TestPacManInRange
+
+  GhostInRange:
+    runs-on: ubuntu-latest
+    container: openjdk
+    steps:
+      - uses: actions/checkout@v2
+      - name: ghost in range
+        run: |
+          javac -cp “Projects/P1/tests/junit-4.10.jar:Projects/P1/src/:Projects/P1/tests/” Projects/P1/src/*.java Projects/P1/tests/*.java
+          java -Djava.awt.headless=true -cp “Projects/P1/tests/junit-4.10.jar:Projects/P1/src/:Projects/P1/tests/” org.junit.runner.JUnitCore TestGhostInRange
+
+          
