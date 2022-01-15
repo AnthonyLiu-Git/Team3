@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Build Project
-        run: javac -cp “Projects/P1/tests/junit-4.10.jar:Projects/P1/src/:Projects/P1/tests/” Projects/P1/src/*.java Projects/P1/tests/*.java
+        run: javac -cp "Projects/P1/tests/junit-4.10.jar:Projects/P1/src/:Projects/P1/tests/" Projects/P1/src/*.java Projects/P1/tests/*.java
   mapattack:  
     runs-on: ubuntu-latest
     container: openjdk
