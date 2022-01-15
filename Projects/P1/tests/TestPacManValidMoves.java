@@ -14,7 +14,7 @@ public class TestPacManValidMoves extends TestCase {
 		locations.add(new Location(5,9));
 		ArrayList<Location> pacman_loc = pacman.get_valid_moves();
 		boolean containsAll = true;
-
+		System.out.println(pacman_loc);
 		for(Location l : pacman_loc) {
 			if(!locations.contains(l)) {
 				containsAll = false;
