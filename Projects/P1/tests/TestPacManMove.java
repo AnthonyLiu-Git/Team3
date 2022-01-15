@@ -8,7 +8,7 @@ public class TestPacManMove extends TestCase {
 	public void testPacManMove() throws FileNotFoundException{
 
 
-        MainFrame frame = new MainFrame();
+        NoFrame frame = new NoFrame();
         Ghost ghost = frame.addGhost(new Location(2, 3), "mike", Color.red);
         PacMan pacman = frame.addPacMan(new Location(1, 1));
         frame.startGame();
