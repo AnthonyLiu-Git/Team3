@@ -87,8 +87,23 @@ public class Map{
 	}
 
 	public boolean attack(String Name) {
-		//update gameOver
-		return gameOver = true;
+		if (isGameOver()) {
+			return gameOver;
+		}
+
+		Location ghostLocation = locations.get(Name);
+
+		if (ghostLocation != null) {
+			Location[] moves = { ghostLocation.shift(0, 1), ghostLocation.shift(0, -1), ghostLocation.shift(1, 0),
+					ghostLocation.shift(-1, 0) };
+			for (Location l : moves) {
+				if (field.get(l) != null && field.get(l).contains(Map.Type.PACMAN)) {
+					gameOver = false;
+					return false;
+				}
+			}
+		}
+		return true;
 
 	}
 

@@ -9,7 +9,7 @@ public class TestMapAttack extends TestCase {
         Ghost ghost = frame.addGhost(new Location(2, 3), "mike", Color.red);
         PacMan pacman = frame.addPacMan(new Location(2, 2));
         System.out.println("This should be true.");
-        assertTrue(frame.getMap().attack("mike"));
+        assertTrue(ghost.attack());
 	}
 
 
