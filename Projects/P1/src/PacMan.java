@@ -24,7 +24,7 @@ public class PacMan{
                     HashSet <Map.Type> x = myMap.getLoc(myLoc.shift(i, j));
 					if(!x.contains(Map.Type.WALL)) {
 						
-						validMoves.add(new Location(i, j));
+						validMoves.add(new Location(myLoc.x+i, myLoc.y+j));
 					}
 				}
 			}
@@ -42,7 +42,7 @@ public class PacMan{
 
         } else {
 
-            this.myLoc = locations.get(locations.size());
+            this.myLoc = locations.get(locations.size() - 1);
             myMap.move(myName, myLoc, Map.Type.PACMAN);
             return true;
 
@@ -61,10 +61,10 @@ public class PacMan{
         if (right.contains(Map.Type.GHOST) || left.contains(Map.Type.GHOST)
             || up.contains(Map.Type.GHOST) || down.contains(Map.Type.GHOST)
             || curr.contains(Map.Type.GHOST) ) {
-            return false;
+            return true;
         }
 
-		return true;
+		return false;
 	}
 
 
@@ -72,10 +72,10 @@ public class PacMan{
 	{
 		if(myMap.getLoc(myLoc).contains(Map.Type.COOKIE))
 		{
-			return null;
+			return myMap.eatCookie("pacman");
 		}
-			
-		return myMap.eatCookie("pacman");
+		
+		return null;
 
 	}
 

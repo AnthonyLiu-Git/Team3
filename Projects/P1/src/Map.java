@@ -64,7 +64,9 @@ public class Map{
 			// removing old location data
 			Location oldLocation = locations.get(name);
 			field.get(oldLocation).remove(type);
-			
+			if (field.get(oldLocation).isEmpty()) {
+                field.get(oldLocation).add(Type.EMPTY);
+            }
 			// updating to new location
 			field.get(loc).add(type);
 			locations.replace(name, loc);
@@ -83,12 +85,27 @@ public class Map{
         }
 		HashSet<Type> location_types = field.get(loc);
 
-		return null;
+		return location_types;
 	}
 
 	public boolean attack(String Name) {
-		//update gameOver
-		return gameOver = true;
+		if (isGameOver()) {
+			return gameOver;
+		}
+
+		Location ghostLocation = locations.get(Name);
+
+		if (ghostLocation != null) {
+			Location[] moves = { ghostLocation.shift(0, 1), ghostLocation.shift(0, -1), ghostLocation.shift(1, 0),
+					ghostLocation.shift(-1, 0) };
+			for (Location l : moves) {
+				if (field.get(l) != null && field.get(l).contains(Map.Type.PACMAN)) {
+					gameOver = false;
+					return false;
+				}
+			}
+		}
+		return true;
 
 	}
 
@@ -109,7 +126,7 @@ public class Map{
 
 			locations.remove(cookieId);
 
-			cookies = cookies + 2;
+			cookies = cookies + 1;
 
 			components.remove(cookieId);
 
