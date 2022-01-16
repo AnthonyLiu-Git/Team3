@@ -56,9 +56,9 @@ public class Ghost{
         if (right.contains(Map.Type.PACMAN) || left.contains(Map.Type.PACMAN)
             || up.contains(Map.Type.PACMAN) || down.contains(Map.Type.PACMAN)
             || curr.contains(Map.Type.PACMAN) ) {
-            return false;
+            return true;
         }
-		return true;
+		return false;
 	}
 
 	public boolean attack()
