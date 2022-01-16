@@ -5,7 +5,7 @@ import java.io.*;
 
 public class TestMapMove extends TestCase {
 	public void testMapMove() throws FileNotFoundException {
-		MainFrame frame = new MainFrame();
+		NoFrame frame = new NoFrame();
         PacMan pacman = frame.addPacMan(new Location(5, 10));
         frame.startGame();
         assertTrue(frame.getMap().move("pacman", new Location(5,11), Map.Type.PACMAN));
