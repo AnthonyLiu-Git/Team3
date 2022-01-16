@@ -65,9 +65,9 @@ public class Ghost{
 	{
 		if(is_pacman_in_range())
 		{
-			return false;
+			return myMap.attack("pacman");
 		}
 		
-		return myMap.attack("pacman");
+		return false;
 	}
 }

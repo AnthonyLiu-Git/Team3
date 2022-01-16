@@ -5,7 +5,7 @@ import java.io.*;
 public class TestGhostInRange extends TestCase {
 
 	public void testPacManInRange() throws FileNotFoundException{
-        NoFrame frame = new NoFrame();
+        MainFrame frame = new MainFrame();
         Ghost ghost = frame.addGhost(new Location(2, 3), "mike", Color.red);
         PacMan pacman = frame.addPacMan(new Location(2, 2));
         frame.startGame();
@@ -14,7 +14,7 @@ public class TestGhostInRange extends TestCase {
 	}
 
     public void testPacManNotInRange()throws FileNotFoundException{
-        NoFrame frame = new NoFrame();
+        MainFrame frame = new MainFrame();
         Ghost ghost = frame.addGhost(new Location(3, 3), "john", Color.red);
         PacMan pacman = frame.addPacMan(new Location(2, 2));
         frame.startGame();
@@ -23,7 +23,7 @@ public class TestGhostInRange extends TestCase {
     }
 
     public void testPacGhostSameSpot()throws FileNotFoundException{
-        NoFrame frame = new NoFrame();
+        MainFrame frame = new MainFrame();
         Ghost ghost = frame.addGhost(new Location(3, 3), "elon", Color.red);
         PacMan pacman = frame.addPacMan(new Location(3, 3));
         frame.startGame();

@@ -6,7 +6,7 @@ public class TestAttack extends TestCase {
 
 	public void testAttack() throws FileNotFoundException
 	{
-		NoFrame frame = new NoFrame();
+		MainFrame frame = new MainFrame();
 		Ghost attackGhost = frame.addGhost(new Location(9,11), "clyde", Color.red);
 		PacMan pacman = frame.addPacMan(new Location(9,12));
 

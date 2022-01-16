@@ -61,10 +61,10 @@ public class PacMan{
         if (right.contains(Map.Type.GHOST) || left.contains(Map.Type.GHOST)
             || up.contains(Map.Type.GHOST) || down.contains(Map.Type.GHOST)
             || curr.contains(Map.Type.GHOST) ) {
-            return false;
+            return true;
         }
 
-		return true;
+		return false;
 	}
 
 
