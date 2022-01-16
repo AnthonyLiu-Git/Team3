@@ -24,7 +24,7 @@ public class PacMan{
                     HashSet <Map.Type> x = myMap.getLoc(myLoc.shift(i, j));
 					if(!x.contains(Map.Type.WALL)) {
 						
-						validMoves.add(new Location(i, j));
+						validMoves.add(new Location(myLoc.x+i, myLoc.y+j));
 					}
 				}
 			}

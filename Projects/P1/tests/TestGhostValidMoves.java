@@ -8,7 +8,6 @@ public class TestGhostValidMoves extends TestCase {
 	public void testGhostValidMoves() throws FileNotFoundException{
 		NoFrame frame = new NoFrame();
 		Ghost ghost = frame.addGhost(new Location(5, 9), "name", Color.red);
-		frame.startGame();
 
 		ArrayList<Location> locations = new ArrayList<Location>();
 		locations.add(new Location(5,10));
